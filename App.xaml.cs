@@ -1,4 +1,6 @@
-﻿namespace Ex_labs
+using Ex_labs.Views;
+
+namespace Ex_labs
 {
   public partial class App : Application
   {
@@ -6,7 +8,7 @@
     {
       InitializeComponent();
 
-      MainPage = new AppShell();
+      MainPage = new LoginPage();
     }
   }
 }
