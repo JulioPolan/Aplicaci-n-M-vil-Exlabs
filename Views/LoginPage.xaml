@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ex_labs.Views.LoginPage"
+             Title="Iniciar sesión"
+             BackgroundColor="#F4F8FB">
+
+  <ScrollView Padding="24">
+    <VerticalStackLayout Spacing="18" VerticalOptions="Center" MaximumWidthRequest="440">
+
+      <!-- Encabezado -->
+      <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+        <Label Text="EX-LABS"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#006B8F"
+                       HorizontalOptions="Center" />
+        <Label Text="Acceso para pacientes y personal del laboratorio"
+                       FontSize="14"
+                       TextColor="#5A6B7C"
+                       HorizontalOptions="Center" />
+      </VerticalStackLayout>
+
+      <!-- Tarjeta del formulario -->
+      <Frame BackgroundColor="White"
+                   CornerRadius="16"
+                   Padding="20"
+                   HasShadow="True"
+                   BorderColor="#DCE7EF">
+        <VerticalStackLayout Spacing="14">
+
+          <!-- Selector de perfil -->
+          <Label Text="Tipo de acceso"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           TextColor="#2C3E50" />
+
+          <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button x:Name="BtnRolePatient"
+                                Grid.Column="0"
+                                Text="Paciente"
+                                BackgroundColor="#008FB8"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Clicked="OnSelectPatientClicked" />
+
+            <Button x:Name="BtnRoleWorker"
+                                Grid.Column="1"
+                                Text="Trabajador"
+                                BackgroundColor="#E6F2F7"
+                                TextColor="#006B8F"
+                                CornerRadius="10"
+                                Clicked="OnSelectWorkerClicked" />
+          </Grid>
+
+          <!-- Correo o usuario -->
+          <VerticalStackLayout Spacing="6">
+            <Label Text="Correo o usuario"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#2C3E50" />
+            <Entry x:Name="EmailEntry"
+                               Placeholder="ejemplo@exlabs.com"
+                               Keyboard="Email"
+                               ClearButtonVisibility="WhileEditing" />
+          </VerticalStackLayout>
+
+          <!-- Contraseña -->
+          <VerticalStackLayout Spacing="6">
+            <Label Text="Contraseña"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="#2C3E50" />
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+              <Entry x:Name="PasswordEntry"
+                                   Grid.Column="0"
+                                   Placeholder="••••••••"
+                                   IsPassword="True" />
+              <Button x:Name="BtnTogglePassword"
+                                    Grid.Column="1"
+                                    Text="Ver"
+                                    BackgroundColor="#EEF4F8"
+                                    TextColor="#006B8F"
+                                    CornerRadius="10"
+                                    Clicked="OnTogglePasswordClicked" />
+            </Grid>
+          </VerticalStackLayout>
+
+          <!-- Mensaje de error -->
+          <Label x:Name="ErrorLabel"
+                           Text=""
+                           TextColor="#C0392B"
+                           FontSize="13"
+                           IsVisible="False" />
+
+          <!-- Indicador de carga -->
+          <ActivityIndicator x:Name="LoadingIndicator"
+                                       IsRunning="False"
+                                       IsVisible="False"
+                                       Color="#008FB8" />
+
+          <!-- Botón principal -->
+          <Button x:Name="BtnLogin"
+                            Text="Entrar"
+                            BackgroundColor="#006B8F"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="12"
+                            HeightRequest="48"
+                            Clicked="OnLoginClicked" />
+
+        </VerticalStackLayout>
+      </Frame>
+
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>
